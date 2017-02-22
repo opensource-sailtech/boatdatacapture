@@ -1,0 +1,99 @@
+// http://codepad-demo.d250.hu/p/koniktalk
+
+/****
+ ** List of sections in this document
+ ** - var EFFORTS for task tracking
+ ** - var COMPONENTS for listing all related pieces of equipment
+ ** - var RESOURCES for tracking what sources of information
+ ** - var META for agreeing on patterns
+ ** - var META for agreeing on versioning
+ ****/
+
+// EFFORTS for tracking all the various tasks and their outcomes, whether just initial explorations or a successful completion.
+var efforts = [{
+        "effort": "interface B&G with RayMarine so that boat data (esp. depth) is available on chartplotter and wirelessly",
+        "start_date": "2017-01-16",
+        "assumptions": [{
+            "assumption": "NMEA 2000 as standard across all NEW systems and NMEA 0183 as standard across all EXISTING systems",
+            "progress_confirming": "in progress",
+            "otherwise": [
+                "standard may be one of the following", [
+                    "SeaTalk; RayMarine and B&G are the same company, and SeaTalk is their internal standard according to ",
+                    "NMEA 0183 since NMEA 2000 was very new when the boat was delivered"
+        ]]}],
+        "steps": [
+            "add to this rough plan",
+            ["find basic ID info for each component: [brand] [purpose] [model]","try recognizing images online", "in progress: see var components; pause on collecting further as we test with what we have"],
+            ["check online manuals for each component (see var components)","in progress: pause on collecting further as we test with what we have"],
+            "discover how to get output from each component",
+            "discover how to parse output",
+            "review utility of output for each component"
+        ],
+},{
+        "effort":"",
+        "start_date": "2017-01-16",
+        "resources": {}
+}]
+
+// COMPONENTS for ...
+var components = [
+            {"title": "RayMarine Multi-function Display eS7 (aka MFD, aka ChartPlotter)", "role": "master in network according to its own setup screen"},
+            {"title": "[brand] AutoPilot [model]", "role": "intermediary between sensors and networks according to Greg, electronics installer of new RayMarine equipment"},
+            {"title": "B&G Network displays and interconnections", "role": "display head of info via NMEA 0183 according to online manuals"}
+]
+
+// MANUFACTURERS for support, replacement parts and additional purchases
+var manufacturers = [
+            {"title": "RayMarine", "resources": [{"type": "main website","url":""},{"type":"user manuals", "url":""}]},
+            {"title": "B&G", "resources": [{"type": "main website","url":""},{"type":"user manuals", "url":"http://www.bandg.com/en-US/Support/Downloads/", "steps": "for existing network and displays, from dropdown select 'discontinued products' then select manual of each individual unit (B&G Network <unit_name> User Manual)"}]},
+
+]
+
+// RESOURCES for confirming assumptions, features, possible solutions, etc.
+var resources = [
+            {"title": "B&G Network Pilot User Manual", "url": "http://www.bandg.com/Documents/products/operator-manuals/Network%20Pilot%20User%20Manual.PDF"},
+            {"title": "B&G Network Nav User Manual", "url": "http://www.chicagomarineelectronics.com/Documents_B&G/Net/Network%20Nav%20User%20Manual.pdf"},
+            {"title": "GIS on StackExchange", "url": "http://gis.stackexchange.com"},
+            {"title": "youtube video: Raspberry Pi Wifi NMEA Multiplexing", "url": "https://www.youtube.com/watch?v=t8N7zkONRgE"},
+            {"title":"raymarine network b&g at DuckDuckGo","url":"https://duckduckgo.com/?q=raymarine+network+b%26g&t=osx&ia=web"},
+            {"title":"Seatalk & NMEA | Official OpenCPN Homepage", "url":"http://opencpn.org/ocpn/raymarine_seatalk_to_nmea"},
+            {"title":"www.gadgetpool.de - Die Homepage", "url":"http://www.gadgetpool.de/home/english/index.html"},
+            {"title":"gadgetPool.de", "url":"http://www.gadgetpool.de/bestellen/catalog/product_info.php/cPath/21/products_id/54"},
+            {"title":"USB RS232 Cables", "url":"http://www.ftdichip.com/Products/Cables/USBRS232.htm"},
+            {"title":"Raymarine AIS Integration with OpenCPN - Cruisers & Sailing Forums", "url":"http://www.cruisersforum.com/forums/f134/raymarine-ais-integration-with-opencpn-60287.html"},
+            {"title":"NMEA Gateways & Multiplexers | Official OpenCPN Homepage", "url":"http://opencpn.org/ocpn/node/87"},
+            {"title":"OpenCPN and Navionics charts", "url":"http://www.ybw.com/forums/showthread.php?447177-OpenCPN-and-Navionics-charts"},
+            {"title":"GitHub - rahra/parsefsh: Decoding Raymarine's ARCHIVE.FSH files, Garmin's IMG/ADM archives and the TRK subfiles.", "url":"https://github.com/rahra/parsefsh"},
+            {"title":"GitHub", "url":"https://github.com/"},
+            {"title":"Simrad/B&G GoFree - Cruisers & Sailing Forums", "url":"http://www.cruisersforum.com/forums/f13/simrad-b-and-g-gofree-123236.html"},
+            {"title":"Raymarine SEATALK/NMEA Interface Problem - Cruisers & Sailing Forums", "url":"http://www.cruisersforum.com/forums/f13/raymarine-seatalk-nmea-interface-problem-102231.html"},
+            {"title":"Raymarine Backbone to B&G", "url":"http://forum.raymarine.com/showthread.php?tid=488"},
+            {"title":"B&G", "url":"http://www.bandg.com/en-GB/?culture=en-GB&lang=changed"},
+            {"title":"B&G Autopilot System", "url":"http://www.wmjmarine.com/auto-pilots-b-g-autopilot-b-g-autopilot-system.html"},
+            {"title":"Sailing chartplotters: Exclusivirst test! - Practical Boat Owner", "url":"http://www.pbo.co.uk/gear/sailing-chartplotters-exclusive-first-test-21854"},
+            {"title":"Google search: how can I find the model on my B&G instruments"},
+            {"title":"B&G manuals, software releases, and installation templates", "url":"http://www.bandg.com/Support/Downloads/"}
+]
+
+var benefits = [{"data-to-speech e.g. boat heading, waypoint range, ais data, depth soundings, chart datum, navigation aids, radar targets not on charts"}]
+
+/**
+ * META note-taking pattern: here's a pattern for our notes that uses key-value pairs in json
+ **/
+var note_pattern = {
+    "first_key": "first value",
+    "second_key": "second value"
+};
+// print just the first value as an example of output
+alert(note_pattern.first_key);
+
+/**
+ * META versioning: when we change directions, let's create a new version with semantic numbering using the following pattern
+ **/
+var change_pattern = {
+    "variations": [
+        ["0.0.2", [
+            {"new_direction_of_some_sort_with_key": "new direction of some sort with value"}
+        ]],
+        ["0.0.1", {"key": "value"}]
+]};
