@@ -54,6 +54,7 @@ var resources = [
             {"title": "B&G Network Pilot User Manual", "url": "http://www.bandg.com/Documents/products/operator-manuals/Network%20Pilot%20User%20Manual.PDF"},
             {"title": "B&G Network Nav User Manual", "url": "http://www.chicagomarineelectronics.com/Documents_B&G/Net/Network%20Nav%20User%20Manual.pdf"},
             {"title": "GIS on StackExchange", "url": "http://gis.stackexchange.com"},
+            {"title": "open source boat data project:", "url":"http://signalk.org/index.html"}
             {"title": "youtube video: Raspberry Pi Wifi NMEA Multiplexing", "url": "https://www.youtube.com/watch?v=t8N7zkONRgE"},
             {"title":"raymarine network b&g at DuckDuckGo","url":"https://duckduckgo.com/?q=raymarine+network+b%26g&t=osx&ia=web"},
             {"title":"Seatalk & NMEA | Official OpenCPN Homepage", "url":"http://opencpn.org/ocpn/raymarine_seatalk_to_nmea"},
